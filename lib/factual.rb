@@ -104,7 +104,7 @@ module Factual
     #   table.serach('starbucks').find_one # one query
     #   table.search('starbucks', 'burger king').find_one # multiple queries
     def search(*queries)
-      @searches = queries
+      @searches = queries.compact.empty? ? nil : queries
       return self
     end
 
